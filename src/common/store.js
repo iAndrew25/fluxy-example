@@ -1,8 +1,8 @@
-import React, {createContext, useContext, useReducer} from 'react';
+import React, {createContext, useContext, useReducer, useMemo} from 'react';
 
 const Context = createContext();
 
-let store = {
+export let store = {
 	list: [{
 		id: 1,
 		value: 'Stuff',
@@ -11,7 +11,8 @@ let store = {
 		id: 2,
 		value: 'Stuff2',
 		done: true
-	}]
+	}],
+	btnValue: true
 };
 
 const listReducer = (state, {type, payload} = {}) => {
@@ -33,14 +34,32 @@ const listReducer = (state, {type, payload} = {}) => {
 	}
 };
 
-let rootReducer = ({list}, action) => ({
-	list: listReducer(list, action)
+const btnReducer = (state, {type, payload} = {}) => {
+	switch (type) {
+		case 'toggle_button':
+			return !state;
+
+		default:
+			return state;
+	}
+};
+
+export let rootReducer = ({list, btnValue}, action) => ({
+	list: listReducer(list, action),
+	btnValue: btnReducer(btnValue, action)
 });
 
-export const StateProvider = ({children}) => (
-	<Context.Provider value={useReducer(rootReducer, store)}>
-		{children}
-	</Context.Provider>
-);
-
 export const useStore = () => useContext(Context);
+
+export default Context.Provider;
+
+export const connect = (mstp, mdtp) => UIComponent => () => {
+	let [store, setValue] = useContext(Context),
+		propsSubscribed = mstp.reduce((total, item) => ({...total, [item]: store[item]}), {}),
+		watchProps = mstp.map(item => store[item]);
+		//console.log("watchProps", watchProps);
+
+	let Component = useMemo(() => <UIComponent {...propsSubscribed} dispatch={setValue} />, watchProps);
+
+	return Component;
+}
