@@ -12,4 +12,4 @@ const UIList = ({list, dispatch}) => {
 	);
 };
 
-export default connect(['list'])(UIList);
+export default connect(store => ({list: store.list}))(UIList);

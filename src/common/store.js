@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useReducer, useMemo} from 'react';
+import React, {createContext, useContext, useMemo} from 'react';
 
 const Context = createContext();
 
@@ -49,12 +49,12 @@ export let rootReducer = ({list, btnValue}, action) => ({
 	btnValue: btnReducer(btnValue, action)
 });
 
-export const connect = (mstp, mdtp) => UIComponent => () => {
+export const connect = mapStateToProps => UIComponent => ownProps => {
 	let [store, dispatch] = useContext(Context),
-		propsSubscribed = mstp.reduce((total, item) => ({...total, [item]: store[item]}), {}),
-		watchProps = mstp.map(item => store[item]);
+		propsSubscribed = {...mapStateToProps(store), ...ownProps},
+		watchProps = Object.values(propsSubscribed);
 
-	return useMemo(() => <UIComponent {...propsSubscribed} dispatch={dispatch} />, watchProps);
+	return useMemo(() => <UIComponent {...propsSubscribed} {...ownProps} dispatch={dispatch} />, watchProps);
 }
 
 export default Context.Provider;

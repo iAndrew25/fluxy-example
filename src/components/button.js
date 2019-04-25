@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import {connect} from '../common/store';
 
 const UIButton = ({btnValue, dispatch}) => {
-	console.log("UIButton");
 	let message = btnValue ? 'ON' : 'OFF',
 		handleOnClick = () => {
 			dispatch({type: 'toggle_button'});
@@ -17,4 +16,10 @@ const UIButton = ({btnValue, dispatch}) => {
 	);
 };
 
-export default connect(['btnValue'])(UIButton);
+const mstp = store => {
+	return {
+		btnValue: store.btnValue
+	}
+}
+
+export default connect(mstp)(UIButton);

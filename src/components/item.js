@@ -19,4 +19,4 @@ const UIItem = ({dispatch}) => {
 	);
 };
 
-export default connect([])(UIItem);
+export default connect(() => ({}))(UIItem);

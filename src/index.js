@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useState} from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
@@ -9,11 +9,14 @@ import List from './components/list';
 import Button from './components/button';
 
 const App = () => {
+	let [val, setVal] = useState('da');
+
 	return (
 		<StateProvider value={useReducer(rootReducer, store)}>
 			<Item />
 			<List />
-			<Button />
+			<Button leng={val}/>
+			<button onClick={() => setVal('nu')}>click - {val}</button>
 		</StateProvider>
 	);
 };
