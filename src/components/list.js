@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {useStore} from '../common/store';
+import {connect} from '../common/store';
 
-export default () => {
-	let [store, dispatch] = useStore();
-console.log('list');
+const UIList = ({list, dispatch}) => {
+	console.log('UIList');
 	return (
 		<div>
-			{store.list.map(({id, value, done}) => <p key={id} onClick={() => dispatch({type: 'toggle_done', payload: {id}})} className={done && 'done'}>{value}</p>)}
+			{list.map(({id, value, done}) => <p key={id} onClick={() => dispatch({type: 'toggle_done', payload: {id}})} className={done && 'done'}>{value}</p>)}
 		</div>
 	);
 };
+
+export default connect(['list'])(UIList);

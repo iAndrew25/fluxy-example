@@ -49,17 +49,12 @@ export let rootReducer = ({list, btnValue}, action) => ({
 	btnValue: btnReducer(btnValue, action)
 });
 
-export const useStore = () => useContext(Context);
-
-export default Context.Provider;
-
 export const connect = (mstp, mdtp) => UIComponent => () => {
-	let [store, setValue] = useContext(Context),
+	let [store, dispatch] = useContext(Context),
 		propsSubscribed = mstp.reduce((total, item) => ({...total, [item]: store[item]}), {}),
 		watchProps = mstp.map(item => store[item]);
-		//console.log("watchProps", watchProps);
 
-	let Component = useMemo(() => <UIComponent {...propsSubscribed} dispatch={setValue} />, watchProps);
-
-	return Component;
+	return useMemo(() => <UIComponent {...propsSubscribed} dispatch={dispatch} />, watchProps);
 }
+
+export default Context.Provider;

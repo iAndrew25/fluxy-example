@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
-import {useStore, connect} from '../common/store';
+import {connect} from '../common/store';
 
-const btn = ({btnValue, dispatch}) => {
-	console.log("btnValue", btnValue);
-	// let [store, dispatch] = useStore(),
-		let message = btnValue ? 'ON' : 'OFF',
+const UIButton = ({btnValue, dispatch}) => {
+	console.log("UIButton");
+	let message = btnValue ? 'ON' : 'OFF',
 		handleOnClick = () => {
 			dispatch({type: 'toggle_button'});
 		};
@@ -18,4 +17,4 @@ const btn = ({btnValue, dispatch}) => {
 	);
 };
 
-export default connect(['btnValue'])(btn);
+export default connect(['btnValue'])(UIButton);

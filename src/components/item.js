@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
-import {useStore} from '../common/store';
+import {connect} from '../common/store';
 
-export default () => {
+const UIItem = ({dispatch}) => {
+	console.log('UIItem');
 	let [value, setValue] = useState(''),
-		[store, dispatch] = useStore(),
 		handleOnClick = () => {
 			dispatch({type: 'add_item', payload: {id: Math.random(), value, done: false}});
 			setValue('');
@@ -18,3 +18,5 @@ export default () => {
 		</div>
 	);
 };
+
+export default connect([])(UIItem);
