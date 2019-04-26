@@ -1,7 +1,5 @@
-import listReducer from './reducers/list-reducer';
-import btnReducer from './reducers/btn-reducer';
+import postsReducer from './reducers/posts-reducer';
 
-export default ({list, btnValue} = {}, action = {}) => ({
-	list: listReducer(list, action),
-	btnValue: btnReducer(btnValue, action)
+export default ({posts} = {}, action = {}) => ({
+	posts: postsReducer(posts, action)
 });

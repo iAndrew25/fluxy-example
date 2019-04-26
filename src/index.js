@@ -6,19 +6,14 @@ import StoreProvider from './common/fluxy';
 import rootReducer from './common/root-reducer';
 import initialStore from './common/store';
 
-import Item from './components/item';
-import List from './components/list';
-import Button from './components/button';
+import Posts from './components/posts';
 
 const App = () => {
-	let [val, setVal] = useState('da');
-
 	return (
 		<StoreProvider initialStore={initialStore} rootReducer={rootReducer}>
-			<Item />
-			<List />
-			<Button leng={val}/>
-			<button onClick={() => setVal('nu')}>click - {val}</button>
+			<div className="main">
+				<Posts />
+			</div>
 		</StoreProvider>
 	);
 };

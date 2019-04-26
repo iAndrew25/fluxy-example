@@ -8,10 +8,66 @@ body {
 	background-color: #eee;
 }
 
-.app {
-	font-size: 32px;
+.main {
+	width: 400px;
+	margin: 50px auto;
 }
 
-.done {
-	text-decoration: line-through;
+.main .post {
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.main .post .post-image {
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.main .post .likes {
+	padding: 5px 10px;
+	text-align: right;
+	cursor: pointer;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	user-select: none;
+}
+
+.main .post .comments .comment {
+	padding: 5px 10px;
+	border-left: 3px solid #1E90FF;	
+}
+
+.main .post .comments .comment:nth-child(odd) {
+	border-left: 3px solid #00FF7F;	
+}
+
+.main .post .comments .comment .author-name {
+	font-weight: bold;
+	color: #888;
+}
+
+.main .post .add-comment {
+	position: relative;
+}
+
+.main .post .add-comment:before {
+	content: '>';
+	position: absolute;
+	top: 15px;
+	left: 8px;
+	font-size: 13px;
+	color: #888;
+}
+
+.main .post .add-comment input {
+	width: 100%;
+	outline: none;
+	margin-top: 5px;
+	border-top: 1px solid #eee;
+	border: none;
+	border-top: 2px solid #eee;
+	padding: 5px 10px 5px 20px;
+	box-sizing: border-box;
+	font-size: 14px;
 }
