@@ -9,13 +9,20 @@ body {
 }
 
 .main {
-	width: 400px;
+	width: 550px;
 	margin: 50px auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .main .post {
 	background-color: #fff;
 	border-radius: 5px;
+}
+
+.main .posts {
+	width: 400px;
 }
 
 .main .post .post-image {

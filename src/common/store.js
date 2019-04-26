@@ -24,11 +24,14 @@ export default {
 	groups: [{
 		id: 1,
 		name: 'Cooking',
+		joined: false,
 	}, {
 		id: 2,
-		name: 'Washing'
+		name: 'Washing',
+		joined: true,
 	}, {
 		id: 3,
-		name: 'Dads jokes'
+		name: 'Dads jokes',
+		joined: true
 	}]
 };

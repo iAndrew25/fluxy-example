@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 export default ({imageUrl, likes, comments, dispatch}) => {
+	console.count('Post');
 	let [value, setValue] = useState(''),
 		handleOnChange = event => {
 			setValue(event.target.value);
