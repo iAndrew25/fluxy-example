@@ -1,4 +1,8 @@
 export default {
+	user: {
+		username: 'Bobby',
+		age: 63
+	},
 	posts: [{
 		id: 1,
 		imageUrl: 'https://i.kym-cdn.com/entries/icons/original/000/016/366/1409630808061.png',
@@ -9,7 +13,7 @@ export default {
 		}, {
 			id: 2,
 			name: 'John',
-			text: 'Oh somewhere online haha. It just cracked me up! Thanks for joining us tonight Bill'
+			text: 'Oh somewhere online haha. It just cracked me up! Thanks for joining us tonight Bill.'
 		}, {
 			id: 3,
 			name: 'Bill',

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default ({imageUrl, likes, comments, dispatch}) => {
+export default ({imageUrl, likes, comments, dispatch, username}) => {
 	console.count('Post');
 	let [value, setValue] = useState(''),
 		handleOnChange = event => {
@@ -15,7 +15,7 @@ export default ({imageUrl, likes, comments, dispatch}) => {
 					comment: {
 						id: Math.random(),
 						text: value,
-						name: 'Bob'
+						name: username
 					}
 				}
 			});

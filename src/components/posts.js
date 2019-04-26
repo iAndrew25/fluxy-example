@@ -3,16 +3,17 @@ import {connect} from '../common/fluxy';
 
 import Post from './post';
 
-const Posts = ({posts, dispatch}) => {
+const Posts = ({posts, username, dispatch}) => {
 	console.count('Posts');
 	return (
 		<div className="posts">
-			{posts.map(postData => <Post {...postData} dispatch={dispatch} />)}
+			{posts.map(postData => <Post {...postData} username={username} dispatch={dispatch} />)}
 		</div>
 	);
 }
 
-const mapStateToProps = ({posts}) => ({
+const mapStateToProps = ({posts, user}) => ({
+	username: user.username,
 	posts
 });
 

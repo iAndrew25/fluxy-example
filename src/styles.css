@@ -11,9 +11,16 @@ body {
 .main {
 	width: 550px;
 	margin: 50px auto;
+}
+
+.main .content {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+.main .profile {
+	margin-bottom: 20px;
 }
 
 .main .post {

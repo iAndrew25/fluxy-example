@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
@@ -8,13 +8,17 @@ import initialStore from './common/store';
 
 import Posts from './components/posts';
 import Groups from './components/groups';
+import Profile from './components/profile';
 
 const App = () => {
 	return (
 		<StoreProvider initialStore={initialStore} rootReducer={rootReducer}>
 			<div className="main">
-				<Groups />
-				<Posts />
+				<Profile />
+				<div className="content">
+					<Groups />
+					<Posts />
+				</div>
 			</div>
 		</StoreProvider>
 	);
