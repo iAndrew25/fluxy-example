@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 
-import {connect} from '../common/store';
+import {connect} from '../common/fluxy';
 
 const UIButton = ({btnValue, dispatch}) => {
+	console.log('UIButton');
 	let message = btnValue ? 'ON' : 'OFF',
 		handleOnClick = () => {
 			dispatch({type: 'toggle_button'});

@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import {connect} from '../common/store';
+import {connect} from '../common/fluxy';
 
 const UIList = ({list, dispatch}) => {
 	console.log('UIList');

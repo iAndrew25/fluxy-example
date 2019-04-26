@@ -1,8 +1,10 @@
-import React, {useReducer, useState} from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-import StateProvider, {rootReducer, store} from './common/store';
+import StoreProvider from './common/fluxy';
+import rootReducer from './common/root-reducer';
+import initialStore from './common/store';
 
 import Item from './components/item';
 import List from './components/list';
@@ -12,12 +14,12 @@ const App = () => {
 	let [val, setVal] = useState('da');
 
 	return (
-		<StateProvider value={useReducer(rootReducer, store)}>
+		<StoreProvider initialStore={initialStore} rootReducer={rootReducer}>
 			<Item />
 			<List />
 			<Button leng={val}/>
 			<button onClick={() => setVal('nu')}>click - {val}</button>
-		</StateProvider>
+		</StoreProvider>
 	);
 };
 

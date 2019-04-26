@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 
-import {connect} from '../common/store';
+import {connect} from '../common/fluxy';
 
 const UIItem = ({dispatch}) => {
 	console.log('UIItem');
