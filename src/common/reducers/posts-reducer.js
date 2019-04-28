@@ -1,4 +1,4 @@
-export default (state, {type, payload} = {}) => {
+export default (state, {type, payload = {}} = {}) => {
 	let {postId, comment} = payload;
 
 	switch (type) {

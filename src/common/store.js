@@ -1,4 +1,5 @@
 export default {
+	users: [],
 	user: {
 		username: 'Bobby',
 		age: 63

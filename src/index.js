@@ -7,6 +7,7 @@ import rootReducer from './common/root-reducer';
 import initialStore from './common/store';
 
 import Posts from './components/posts';
+import Users from './components/users';
 import Groups from './components/groups';
 import Profile from './components/profile';
 
@@ -18,6 +19,7 @@ const App = () => {
 				<div className="content">
 					<Groups />
 					<Posts />
+					<Users />
 				</div>
 			</div>
 		</StoreProvider>
