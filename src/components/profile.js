@@ -11,13 +11,10 @@ const Profile = ({username, age}) => {
 	);
 }
 
-const mapStateToProps = (state) => {
-	console.log("state", state);
-
-
+const mapStateToProps = ({user}) => {
 	return {
-		username: state.user.username,
-		age: state.user.age
+		username: user.username,
+		age: user.age
 	}
 };
 

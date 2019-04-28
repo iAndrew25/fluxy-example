@@ -8,10 +8,10 @@ export const connect = (mapStateToProps, mapDispatchToProps) => UIComponent => o
 	let [store, dispatch] = useContext(Context),
 		subscribedProps = isFunction(mapStateToProps) ? mapStateToProps(store) : {},
 		dispatchProps = isFunction(mapDispatchToProps) ? mapDispatchToProps(dispatch) : {},
-		componentProps = {...subscribedProps, ...ownProps, ...dispatchProps},
+		componentProps = {...subscribedProps, ...ownProps},
 		watchProps = Object.values(componentProps);
 
-	return useMemo(() => <UIComponent {...componentProps} dispatch={dispatch} />, watchProps);
+	return useMemo(() => <UIComponent {...componentProps} {...dispatchProps} dispatch={dispatch} />, watchProps);
 }
 
 export default ({children, rootReducer, initialStore}) => (
