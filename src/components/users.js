@@ -11,11 +11,7 @@ const Users = ({getUsers, users}) => {
 	return (
 		<div className="users">
 			Online users:
-			{users.map(({id, name}) => 
-				<p key={id}>
-					{name}
-				</p>
-			)}
+			{users.map(({id, name}) => <p key={id}>{name}</p>)}
 		</div>
 	);
 }
